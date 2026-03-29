@@ -1,38 +1,151 @@
-.App {
-  text-align: center;
+/* 🌸 GLOBAL BACKGROUND */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffe6f0, #fff0f5, #ffe6ff);
+  overflow-x: hidden;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ✨ GLOW EFFECT */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body::before {
+  background: #ff66b2;
+  top: -100px;
+  left: -100px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body::after {
+  background: #ff99cc;
+  bottom: -100px;
+  right: -100px;
 }
 
-.App-link {
-  color: #61dafb;
+/* 💫 FLOATING LIGHTS */
+.light {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: floatUp 10s linear infinite;
 }
 
-@keyframes App-logo-spin {
+@keyframes floatUp {
   from {
-    transform: rotate(0deg);
+    transform: translateY(100vh);
+    opacity: 1;
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(-10vh);
+    opacity: 0;
   }
+}
+
+/* 🎬 CINEMATIC SCREEN */
+.cinematic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  z-index: 999;
+  cursor: pointer;
+}
+
+/* 🎥 VIDEO BACKGROUND */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%) blur(2px);
+  z-index: -1;
+}
+
+/* ✨ OVERLAY */
+.overlay {
+  z-index: 2;
+}
+
+/* 💖 BIG NAMES */
+.big-names {
+  font-size: 3rem;
+  animation: zoomIn 2s ease;
+}
+
+/* 💬 QUOTE */
+.quote {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  animation: fadeIn 3s ease;
+}
+
+/* 👉 ENTER TEXT */
+.enter-text {
+  animation: pulse 1.5s infinite;
+}
+
+/* 💎 GLASS CARD STYLE */
+.card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* 💫 CURSOR SPARK */
+.spark {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: pink;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkle 1s linear;
+}
+
+@keyframes sparkle {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2); }
+}
+
+/* 🎬 ANIMATIONS */
+@keyframes zoomIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
 }
